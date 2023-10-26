@@ -48,7 +48,15 @@ export default defineConfig(({ mode }) => {
 						},
 				  }) // eslint-disable-line no-mixed-spaces-and-tabs
 				: null,
-			linaria(),
+			linaria({
+				include: ['**/*.{ts,tsx}'],
+				babelOptions: {
+					presets: [
+						'@babel/preset-typescript',
+						'@babel/preset-react',
+					],
+				},
+			}),
 		],
 		resolve: {
 			alias: resolveAlias,
